@@ -1,0 +1,54 @@
+{
+    "name": "manojkiran/aktiv",
+    "description": "Package For Handling Active Menu(s) based on routes or url or resource routes",
+    "keywords": [
+        "manojkiran",
+        "aktiv"
+    ],
+    "homepage": "https://github.com/manojkiran/aktiv",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Manojkiran",
+            "email": "manojkiran10031998@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Manojkiran\\Aktiv\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Manojkiran\\Aktiv\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Manojkiran\\Aktiv\\AktivServiceProvider"
+            ],
+            "aliases": {
+                "Aktiv": "Manojkiran\\Aktiv\\AktivFacade"
+            }
+        }
+    }
+}
