@@ -1,31 +1,79 @@
-# Very short description of the package
+# Aktiv
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/manojkiran/aktiv.svg?style=flat-square)](https://packagist.org/packages/manojkiran/aktiv)
-[![Build Status](https://img.shields.io/travis/manojkiran/aktiv/master.svg?style=flat-square)](https://travis-ci.org/manojkiran/aktiv)
-[![Quality Score](https://img.shields.io/scrutinizer/g/manojkiran/aktiv.svg?style=flat-square)](https://scrutinizer-ci.com/g/manojkiran/aktiv)
-[![Total Downloads](https://img.shields.io/packagist/dt/manojkiran/aktiv.svg?style=flat-square)](https://packagist.org/packages/manojkiran/aktiv)
+[![Packagist License](https://poser.pugx.org/barryvdh/laravel-debugbar/license.png)](http://choosealicense.com/licenses/mit/)
+[![Latest Stable Version](https://poser.pugx.org/manojkiran/aktiv/v/stable)](https://packagist.org/packages/manojkiran/aktiv)
+[![Total Downloads](https://poser.pugx.org/manojkiran/aktiv/downloads)](https://packagist.org/packages/manojkiran/aktiv)
+[![Laravel5.8](https://img.shields.io/badge/Laravel-Framework-red.svg?style=flat)](https://www.laravel.com/)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Aktiv is a Laravel Helper Plugin that helpes to set the active menus
 
-## Installation
+## Available Methods
+  - ``` isRouteActive ```
+  - ``` areRoutesActive ```
+  - ``` isResourceActive ```
+  - ``` areResourcesActive ```
+  - ```isActivePattern```
+  - ```areActivePatterns```
+  - ```isUrlActive```
+  - ```areUrlsActive```
+  
 
-You can install the package via composer:
+
+
+
+### Installation
+
+Aktiv requires [Laravel](https://laravel.com/) v 5.7 to use
+
+From the command line:
 
 ```bash
 composer require manojkiran/aktiv
 ```
 
-## Usage
+Laravel 5.5+ will use the auto-discovery function.
 
-``` php
-// Usage description here
+If using 5.4 (or if you are not using auto-discovery) you will need to include the service providers / facade in `config/app.php`:
+
+```php
+'providers' => [
+    ...,
+    Manojkiran\Aktiv\AktivServiceProvider::class
+];
 ```
 
-### Testing
+And add a facade alias to the same file at the bottom:
 
-``` bash
-composer test
-```
+```php
+'aliases' => [
+    ...,
+    'Aktiv' => Manojkiran\Aktiv\Facade\AktivFacade\Aktiv::class
+];
+```  
+### How to Use (BOOTSRAP)
+| METHODS | EXAMPLES |
+| ------ | ------ |
+| isRouteActive | ``` Aktiv::isRouteActive('routeName') ``` |
+| areRoutesActive | ``` Aktiv::areRoutesActive(['routeName1','routeName2','routeName3','routeNameN']) ``` |
+| isResourceActive | ``` Aktiv::isResourceActive('resourceName') ``` |
+| areResourcesActive | ``` Aktiv::areResourcesActive(['resourceName1','resourceName2','resourceName3','resourceNameN']) ``` |
+| isActivePattern | ``` Aktiv::isActivePattern('pattern1') ``` |
+| areActivePatterns | ``` Aktiv::areActivePatterns(['pattern1','pattern2','pattern3','patternN']) ``` |
+| isUrlActive | ``` Aktiv::isUrlActive('url') ``` |
+| areUrlsActive | ``` Aktiv::areUrlsActive(['url1','url2','url3','urln']) ``` |
+
+### How to Use in  ```CUSTOM ACTIVE CLASS```
+| METHODS | EXAMPLES |
+| ------ | ------ |
+| isRouteActive | ``` Aktiv::isRouteActive('routeName','activeClassName') ``` |
+| areRoutesActive | ``` Aktiv::areRoutesActive(['routeName1','routeName2','routeName3',routeNameN],'activeClassName') ``` |
+| isResourceActive | ``` Aktiv::isResourceActive('resourceName','activeClassName') ``` |
+| areResourcesActive | ``` Aktiv::areResourcesActive(['resourceName1','resourceName2','resourceName3','resourceNameN'],'activeClassName') ``` |
+| isActivePattern | ``` Aktiv::isActivePattern('pattern1','activeClassName') ``` |
+| areActivePatterns | ``` Aktiv::areActivePatterns(['pattern1','pattern2','pattern3','patternN'],'activeClassName') ``` |
+| isUrlActive | ``` Aktiv::isUrlActive('url','activeClassName') ``` |
+| areUrlsActive | ``` Aktiv::areUrlsActive(['url1','url2','url3','urln'],'activeClassName') ``` | 
+
 
 ### Changelog
 
