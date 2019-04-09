@@ -31,7 +31,7 @@ class Aktiv
     |<li class="{{ Aktiv::isRouteActive('routeName','activeClassName') }}">
     |
     */
-    public static function isRouteActive($routeName='',$className='')
+    public static function isRouteActive(string $routeName , string $className = null, string $notActiveText = null)
     {
         
         $className = static::setClassNameToActiveIfNull($className);
@@ -39,6 +39,9 @@ class Aktiv
         if (Route::currentRouteName() == $routeName) 
         {
             return $className;
+        }else 
+        {
+            return $notActiveText;
         }
     }
 
@@ -68,7 +71,7 @@ class Aktiv
     |<li class="{{ Aktiv::areRoutesActive(['routeName1','routeName2','routeName3',routeNameN],'activeClassName') }}">
     |
     */
-    public static function areRoutesActive(Array $routeNames,$className='') 
+    public static function areRoutesActive(array $routeNames,string $className = null, string $notActiveText = null) 
     {
         $className = static::setClassNameToActiveIfNull($className);
 
@@ -77,7 +80,10 @@ class Aktiv
             if (Route::currentRouteName() == $routeName)
             {
                 return $className;
-            } 
+            }else 
+            {
+                return $notActiveText;
+            }            
         }
     }
 
@@ -107,7 +113,7 @@ class Aktiv
     |<li class="{{ Aktiv::isResourceActive('resourceName','activeClassName') }}">
     |
     */
-    public static  function isResourceActive($resourceName,$className='') 
+    public static  function isResourceActive(string $resourceName,string $className = null, string $notActiveText = null) 
     {
         $className = static::setClassNameToActiveIfNull($className);
 
@@ -121,7 +127,10 @@ class Aktiv
             {
                 return $className;
                 
-            }
+            }else 
+            {
+                return $notActiveText;
+            } 
         }
     }
 
@@ -151,7 +160,7 @@ class Aktiv
     |<li class="{{ Aktiv::areResourcesActive(['resourceName1','resourceName2','resourceName3',resourceNameN],'activeClassName') }}">
     |
     */
-    public static function areResourcesActive(Array $resourceNames,$className='')
+    public static function areResourcesActive(array $resourceNames,string $className = null, string $notActiveText = null)
     {
         $className = static::setClassNameToActiveIfNull($className);
 
@@ -168,7 +177,10 @@ class Aktiv
                 if (Route::is($activateEachRoute)) 
                 {
                     return $className;
-               }
+                }else 
+                {
+                    return $notActiveText;
+                } 
             }
         }
     }
@@ -201,14 +213,17 @@ class Aktiv
     */
 
 
-    public static function isActivePattern($hyperLink='', $className='')
+    public static function isActivePattern(string $hyperLink,string $className = null, string $notActiveText = null)
     {
         $className = static::setClassNameToActiveIfNull($className);
 
         if (strpos(URL::current(), $hyperLink) !== false)
         {
             return $className;
-        }
+        }else 
+        {
+            return $notActiveText;
+        } 
     }
 
     /**
@@ -239,7 +254,7 @@ class Aktiv
     */
 
 
-    public static function areActivePatterns($hyperLinks='', $className='')
+    public static function areActivePatterns(string $hyperLinks , string $className = null, string $notActiveText = null)
     {
         $className = static::setClassNameToActiveIfNull($className);
 
@@ -248,7 +263,10 @@ class Aktiv
             if (strpos(URL::current(), $hyperLink) !== false)
             {
                 return $className;
-            }
+            }else 
+            {
+                return $notActiveText;
+            } 
         }        
     }
 
@@ -279,13 +297,16 @@ class Aktiv
     |<li class="{{ Aktiv::isUrlActive('test','activeClassName') }}">
     |
     */
-    public static function isUrlActive($hyperLink='', $className='')
+    public static function isUrlActive(string $hyperLink, string $className = null, string $notActiveText = null)
     {
         $className = static::setClassNameToActiveIfNull($className);
 
         if (URL::current() == URL::to($hyperLink)) 
         {
             return $className;
+        }else 
+        {
+            return $notActiveText;
         }
 
     }
@@ -317,7 +338,7 @@ class Aktiv
     |
     */
 
-    public static function areUrlsActive(array $hyperLinks, $className='')
+    public static function areUrlsActive(array $hyperLinks, string $className = null, string $notActiveText = null)
     {
         $className = static::setClassNameToActiveIfNull($className);
 
@@ -326,6 +347,9 @@ class Aktiv
             if (URL::current() == URL::to($hyperLink)) 
             {
                 return $className;
+            }else 
+            {
+                return $notActiveText;
             }
         }
     }
