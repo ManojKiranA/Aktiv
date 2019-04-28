@@ -306,7 +306,7 @@ class Aktiv
      */
     public static function getResourceRoutes()
     {
-        $routeResourceLists = ['.index', '.create', '.edit', 'show'];
+        $routeResourceLists = ['.index', '.create', '.edit', '.show'];
         return $routeResourceLists;
     }
 }
