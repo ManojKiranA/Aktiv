@@ -65,9 +65,9 @@ class Aktiv
     |<li class="{{ Aktiv::areRoutesActive(['routeName1','routeName2','routeName3',routeNameN],'activeClassName') }}">
     |
     */
-    public static function areRoutesActive(array $routeNames, string $className = null)
+    public function areRoutesActive(array $routeNames, string $className = null)
     {
-        $className = static::setClassNameToActiveIfNull($className);
+        $className = $this->setClassNameToActiveIfNull($className);
         foreach ($routeNames as $routeName) {
                 if (Route::currentRouteName() == $routeName) {
                         return $className;
@@ -99,10 +99,10 @@ class Aktiv
     |<li class="{{ Aktiv::isResourceActive('resourceName','activeClassName') }}">
     |
     */
-    public static  function isResourceActive(string $resourceName, string $className = null)
+    public  function isResourceActive(string $resourceName, string $className = null)
     {
-        $className = static::setClassNameToActiveIfNull($className);
-        $routeResourceLists = static::getResourceRoutes();
+        $className = $this->setClassNameToActiveIfNull($className);
+        $routeResourceLists = $this->getResourceRoutes();
         foreach ($routeResourceLists as $routeResourceList) {
                 $activateEachRoute = $resourceName . $routeResourceList;
                 if (Route::is($activateEachRoute)) {
@@ -135,10 +135,10 @@ class Aktiv
     |<li class="{{ Aktiv::areResourcesActive(['resourceName1','resourceName2','resourceName3',resourceNameN],'activeClassName') }}">
     |
     */
-    public static function areResourcesActive(array $resourceNames, string $className = null)
+    public function areResourcesActive(array $resourceNames, string $className = null)
     {
-        $className = static::setClassNameToActiveIfNull($className);
-        $routeResourceLists = static::getResourceRoutes();
+        $className = $this->setClassNameToActiveIfNull($className);
+        $routeResourceLists = $this->getResourceRoutes();
         foreach ($resourceNames as $resourceName) {
 
 
@@ -176,9 +176,9 @@ class Aktiv
     |<li class="{{ Aktiv::isActivePattern('test','activeClassName') }}">
     |
     */
-    public static function isActivePattern(string $hyperLink, string $className = null)
+    public function isActivePattern(string $hyperLink, string $className = null)
     {
-        $className = static::setClassNameToActiveIfNull($className);
+        $className = $this->setClassNameToActiveIfNull($className);
         if (strpos(URL::current(), $hyperLink) !== false) {
                 return $className;
             }
@@ -208,9 +208,9 @@ class Aktiv
     |<li class="{{ Aktiv::areActivePatterns('test','activeClassName') }}">
     |
     */
-    public static function areActivePatterns(string $hyperLinks, string $className = null)
+    public function areActivePatterns(string $hyperLinks, string $className = null)
     {
-        $className = static::setClassNameToActiveIfNull($className);
+        $className = $this->setClassNameToActiveIfNull($className);
         foreach ($hyperLinks as $hyperLink) {
                 if (strpos(URL::current(), $hyperLink) !== false) {
                         return $className;
@@ -242,9 +242,9 @@ class Aktiv
     |<li class="{{ Aktiv::isUrlActive('test','activeClassName') }}">
     |
     */
-    public static function isUrlActive(string $hyperLink, string $className = null)
+    public function isUrlActive(string $hyperLink, string $className = null)
     {
-        $className = static::setClassNameToActiveIfNull($className);
+        $className = $this->setClassNameToActiveIfNull($className);
         if (URL::current() == URL::to($hyperLink)) {
                 return $className;
             }
@@ -274,9 +274,9 @@ class Aktiv
     |<li class="{{ Aktiv::areUrlsActive(['urlOne','urlTwo','urlThree'],'activeClassName') }}">
     |
     */
-    public static function areUrlsActive(array $hyperLinks, string $className = null)
+    public function areUrlsActive(array $hyperLinks, string $className = null)
     {
-        $className = static::setClassNameToActiveIfNull($className);
+        $className = $this->setClassNameToActiveIfNull($className);
         foreach ($hyperLinks as $hyperLink) {
                 if (URL::current() == URL::to($hyperLink)) {
                         return $className;
@@ -305,7 +305,7 @@ class Aktiv
      * @author       Manojkiran <manojkiran10031998@gmail.com>
      * @return array
      */
-    public static function getResourceRoutes()
+    public function getResourceRoutes()
     {
         $routeResourceLists = ['.index', '.create', '.edit', '.show'];
         return $routeResourceLists;
