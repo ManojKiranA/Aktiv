@@ -31,10 +31,11 @@ class Aktiv
     |<li class="{{ Aktiv::isRouteActive('routeName','activeClassName') }}">
     |
     */
-    public static function isRouteActive(string $routeName, string $className = null)
+    public  function isRouteActive(string $routeName, string $className = null)
     {
 
-        $className = static::setClassNameToActiveIfNull($className);
+        $className = $this->setClassNameToActiveIfNull($className);
+        
         if (Route::currentRouteName() == $routeName) {
                 return $className;
             }
@@ -290,7 +291,7 @@ class Aktiv
      * @param  string $className
      * @return string
      */
-    public static function setClassNameToActiveIfNull(string $className = null)
+    public function setClassNameToActiveIfNull(string $className = null)
     {
         if ($className == null) {
                 $className = "active";

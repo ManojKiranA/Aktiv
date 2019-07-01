@@ -1,13 +1,13 @@
 <?php
 
-namespace Manojkiran\Aktiv;
+namespace Manojkiran\Aktiv\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Manojkiran\Aktiv\Skeleton\SkeletonClass
  */
-class AktivFacade extends Facade
+class Aktiv extends Facade
 {
     /**
      * Get the registered name of the component.

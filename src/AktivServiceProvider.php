@@ -54,7 +54,7 @@ class AktivServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('aktiv', function () {
-            return new Aktiv;
+            return new Aktiv();
         });
     }
 }

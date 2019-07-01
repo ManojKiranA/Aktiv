@@ -2,8 +2,10 @@
     "name": "manojkiran/aktiv",
     "description": "Package For Handling Active Menu(s) based on routes or url or resource routes",
     "keywords": [
-        "manojkiran",
-        "aktiv"
+        "laravel",
+        "aktiv",
+        "bootstrap",
+        "menu",
     ],
     "homepage": "https://github.com/manojkiran/aktiv",
     "license": "MIT",
@@ -47,7 +49,7 @@
                 "Manojkiran\\Aktiv\\AktivServiceProvider"
             ],
             "aliases": {
-                "Aktiv": "Manojkiran\\Aktiv\\AktivFacade"
+                "Aktiv": "Manojkiran\\Aktiv\\Facades\\Aktiv"
             }
         }
     }
