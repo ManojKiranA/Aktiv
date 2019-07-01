@@ -5,7 +5,7 @@
         "laravel",
         "aktiv",
         "bootstrap",
-        "menu",
+        "menu"
     ],
     "homepage": "https://github.com/manojkiran/aktiv",
     "license": "MIT",
